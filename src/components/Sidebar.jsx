@@ -28,7 +28,7 @@ const Sidebar = () => {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-white">
             <path d="M3 3L10.5 21L13.5 13.5L21 10.5L3 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          <span className="text-base font-bold text-white">Dhruval</span>
+          <span className="text-base font-bold text-white">DD is.dev</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="flex items-center gap-1 text-xs text-green-500">

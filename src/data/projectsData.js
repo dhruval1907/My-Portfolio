@@ -1,83 +1,54 @@
 export const projectsData = [
   {
-    id: 'nike-reimagined',
-    title: 'Nike Reimagined | Modern Redesign Concept',
-    slug: 'nike-reimagined',
-    shortDescription: 'A sleek and modern redesign of Nike\'s official web experience built with React and Tailwind CSS.',
-    bannerImage: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&h=600&fit=crop',
+    id: 'Mac-os Portfolio',
+    title: 'Mac-os Portfolio',
+    slug: 'Mac-os styling',
+    shortDescription: 'A sleek and modern redesign of mac os for that was created for obsession ',
     category: 'Web Design',
     year: '2025',
-    fullDescription: `Nike Reimagined is a complete visual and functional overhaul of Nike's e-commerce platform. This project showcases modern web design principles, focusing on minimalism, performance, and user experience. The redesign emphasizes product imagery with a clean, distraction-free interface that puts the shoes front and center.
-
-The project implements advanced React patterns including lazy loading, code splitting, and optimized rendering to ensure fast load times even with high-resolution product images. The design system is built entirely with Tailwind CSS, providing a consistent and maintainable styling approach.
-
-Key features include an interactive product carousel, smooth scroll animations, responsive navigation, and a streamlined checkout process. The color scheme pays homage to Nike's iconic branding while introducing fresh, contemporary elements.`,
+    fullDescription: `I built a macOS-style portfolio using React and Tailwind CSS, inspired purely by my obsession with Apple’s design language. Clean layouts, subtle animations, and a desktop-like experience define the interface. It’s a minimal, performance-focused project that reflects both precision in UI development and appreciation for macOS aesthetics.`,
     features: [
       'Fully responsive design for all devices',
-      'Interactive product gallery with zoom',
-      'Smooth scroll animations using Framer Motion',
-      'Optimized image loading and lazy loading',
-      'Advanced filtering and search functionality',
-      'Shopping cart with local storage',
-      'Modern checkout flow',
-      'Dark mode support'
+      'Interactive movable all the component not suitable for mobile ',
+      'Comparing head to head design with the mac-os',
     ],
     techStack: [
       'React',
       'Tailwind CSS',
-      'Framer Motion',
+      'Npm packages',
       'Vite',
       'React Router',
-      'Zustand',
-      'React Query'
     ],
-    liveDemo: 'https://nike-reimagined-demo.vercel.app',
-    github: 'https://github.com/yourusername/nike-reimagined',
-    challenges: `Maintaining brand consistency while reimagining Nike's design language.
-Achieving smooth animations without affecting performance.
-Ensuring pixel-perfect responsiveness across devices.
-Optimizing load times for a better user experience.`,
-    learnings: `Mastered efficient UI composition with React and Tailwind CSS.
-Improved understanding of animation principles using Framer Motion.
-Enhanced deployment workflow using Vercel and Vite integration.
-Developed better practices for responsive and scalable frontend design.`
+    liveDemo: 'https://mac-os-ashen.vercel.app/',
+    github: 'https://github.com/dhruval1907/MacDeck',
   },
   {
-    id: 'portfolio-aditya',
-    title: 'Portfolio | Aditya Domle',
-    slug: 'portfolio-aditya',
-    shortDescription: 'A dynamic portfolio showcasing my projects, skills, and contributions using the latest web technologies.',
-    bannerImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop',
-    category: 'Portfolio',
-    year: '2025',
-    fullDescription: `A modern, fully responsive portfolio website built to showcase my work as a full-stack developer. This portfolio features smooth animations, dark mode support, and an intuitive user interface that makes it easy for visitors to explore my projects and get in touch.
+    id: 'Admin-panel in mern',
+    title: 'Admin-panel in mern',
+    slug: 'Admin-panel in mern',
+    shortDescription: 'MERN Admin Dashboard with Full CRUD Operations',
+    category: 'crud',
+    year: '2026',
+    fullDescription: `I built a MERN stack application as a strong starting point in my backend development journey. This project focuses on implementing complete CRUD operations using MongoDB, where an admin can securely create, update, manage, and delete data. It helped me understand server-side logic, RESTful API structure, database schema design, and real-world data handling with a practical, hands-on approach.`,
 
-The design philosophy centers around minimalism and professionalism, with careful attention to typography, spacing, and color theory. Every interaction is crafted to feel smooth and intentional, from page transitions to hover effects.
 
-The portfolio includes dedicated sections for projects, skills, experience, education, and contact information. Each section is designed to tell a story about my journey as a developer, highlighting key achievements and technical capabilities.`,
     features: [
-      'Dynamic project showcase with filtering',
-      'Animated section transitions',
-      'Integrated contact form with validation',
-      'Skills visualization with progress indicators',
-      'Experience timeline with hover effects',
-      'Downloadable resume functionality',
-      'Social media integration',
-      'SEO optimized with meta tags'
+      'Full CRUD Operations (Create, Read, Update, Delete)',
+      'MongoDB integration for data storage',
+      'Structured REST API using Node.js & Express',
+      'Admin-based data management system',
+      'Mongoose schema & model implementation',
     ],
     techStack: [
       'React',
-      'Next.js',
-      'Tailwind CSS',
-      'Framer Motion',
-      'TypeScript',
+      'Node.js',
+      'express.js',
+      'Mongo DB',
       'Vercel',
-      'EmailJS'
+      // 'EmailJS'
     ],
-    liveDemo: 'https://adityadomle.vercel.app',
-    github: 'https://github.com/yourusername/portfolio',
-    challenges: 'Creating smooth animations that don\'t impact performance was challenging. Had to optimize animation timing and use transform properties for better GPU acceleration.',
-    learnings: 'Gained deep understanding of CSS animations, React performance optimization, and creating accessible web interfaces. Also learned about effective portfolio design principles.'
+    liveDemo: 'https://www.linkedin.com/posts/dhruval-dalwadi-892144306_mernstack-reactjs-nodejs-ugcPost-7424909715589066752-whX9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE35j-4BkTuWjj63GD2QtVKJfaFFkosMU3Y',
+    github: 'https://github.com/dhruval1907/admin-mern-app',
   },
   {
     id: 'news-hub',
