@@ -40,7 +40,7 @@ const Stats = () => {
     const months = ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'];
     const days = ['Mon', 'Wed', 'Fri'];
     const contributions = [];
-    
+
     months.forEach((month) => {
       days.forEach((day) => {
         for (let i = 0; i < 4; i++) {
@@ -52,7 +52,7 @@ const Stats = () => {
         }
       });
     });
-    
+
     return contributions;
   };
 
@@ -84,7 +84,7 @@ const Stats = () => {
             </div>
             <p className="text-6xl font-bold text-purple-500 mb-2">{pageViews.toLocaleString()}</p>
             <p className="text-sm text-gray-500">Unique page visits since Oct-2025</p>
-            <p className="text-xs text-green-500 mt-2">🔴 Live tracking enabled</p>
+            <p className="text-xs text-green-500 mt-2"></p>
           </Card>
 
           <Card hover={false} className="text-center">
@@ -96,11 +96,10 @@ const Stats = () => {
             <button
               onClick={handleLike}
               disabled={hasLiked}
-              className={`inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full transition-all ${
-                hasLiked
+              className={`inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full transition-all ${hasLiked
                   ? 'bg-pink-900/20 text-pink-400 cursor-not-allowed'
                   : 'bg-pink-600 hover:bg-pink-500 text-white cursor-pointer'
-              }`}
+                }`}
             >
               <Heart size={16} className={hasLiked ? 'fill-pink-400' : ''} />
               <span className="text-sm">{hasLiked ? 'Thank you!' : 'Like this portfolio'}</span>
@@ -138,7 +137,7 @@ const Stats = () => {
               ))}
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-500">1400 contributions in the last year</span>
+              <span className="text-gray-500">936 contributions in the last year</span>
               <div className="flex items-center gap-2">
                 <span className="text-gray-500">Less</span>
                 <div className="flex gap-1">
@@ -159,15 +158,15 @@ const Stats = () => {
             </Card>
             <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Total Public Repositories</p>
-              <p className="text-3xl font-bold text-white">29</p>
+              <p className="text-3xl font-bold text-white">44</p>
             </Card>
             <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Followers</p>
-              <p className="text-3xl font-bold text-white">169</p>
+              <p className="text-3xl font-bold text-white">130</p>
             </Card>
             <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Following</p>
-              <p className="text-3xl font-bold text-white">42</p>
+              <p className="text-3xl font-bold text-white">166</p>
             </Card>
             {/* <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Current Company</p>
