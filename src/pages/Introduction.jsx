@@ -16,16 +16,13 @@ const Introduction = () => {
             transition={{ delay: 0.2 }}
           >
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-              Aditya Domle
+              Dhruval Dalwadi
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-400 mb-6">
               A coder by day, problem-solver by night!
             </h2>
             <p className="text-gray-soft text-lg mb-8 max-w-3xl leading-relaxed">
-              I am a dedicated Software Engineer specializing in full-stack application development. 
-              I enjoy crafting responsive web solutions using modern technologies like Next.js, React, 
-              Tailwind CSS, Node.js, Express, and MongoDB, while also applying DevOps practices, 
-              continuously aiming to deliver high-quality, comprehensive, user-centric software solutions.
+              Front-End Developer focused on crafting scalable React.js applications with smooth animations and performance-optimized UI. Possess foundational backend knowledge, including building basic REST APIs, configuring Node.js/Express servers, and integrating MongoDB for data storage to support full-stack functionality
             </p>
             <div className="flex flex-wrap gap-4">
               <Button variant="primary" icon={<ExternalLink size={18} />}>

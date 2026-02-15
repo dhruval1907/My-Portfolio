@@ -46,14 +46,14 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
                   <path d="M3 3L10.5 21L13.5 13.5L21 10.5L3 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span className="text-lg font-bold text-white hidden md:block">Dhruval</span>
+                <span className="text-lg font-bold text-white hidden md:block">DD.dev</span>
               </Link>
               <div className="hidden md:flex items-center gap-4 text-sm">
                 <Link to="/" className="text-gray-soft hover:text-white transition-colors">
                   Home
                 </Link>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/dhruval-dalwadi-892144306/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-gray-soft hover:text-white transition-colors"
@@ -105,7 +105,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                   )}
                 </button>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/dhruval1907"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 hover:bg-dark-secondary rounded-lg transition-colors"
