@@ -169,14 +169,14 @@ const Stats = () => {
               <p className="text-sm text-gray-500 mb-2">Following</p>
               <p className="text-3xl font-bold text-white">42</p>
             </Card>
-            <Card hover={false} className="text-center">
+            {/* <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Current Company</p>
               <p className="text-xl font-bold text-white">AxiomentryAi</p>
             </Card>
             <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Location</p>
               <p className="text-xl font-bold text-white">Nagpur, India</p>
-            </Card>
+            </Card> */}
           </div>
         </div>
 

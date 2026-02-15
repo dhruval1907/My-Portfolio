@@ -7,27 +7,28 @@ const Education = () => {
   const education = [
     {
       id: 1,
-      degree: 'Bachelor of Computer Application',
-      institution: 'GH Raisoni College of Engineering and Management',
-      location: 'Nagpur, India',
-      date: 'Aug 2023 - June 2026 (Expected)',
-      description: 'Pursuing BCA with a focus on programming, web development, and software engineering. Current CGPA: 8.40.',
+      degree: 'Master of Science in Information Technology ',
+      institution: 'SARDAR PATEL UNIVERSITY',
+      location: 'Anand, India',
+      date: 'JUN 2025 - APRIL 2027 (Expected)',
+      description: 'Currently pursuing a Master of Science (M.Sc.) in Information Technology, maintaining a CGPA of 7.36.',
     },
     {
       id: 2,
-      degree: 'Higher Secondary Education',
-      institution: 'NPW Science College',
-      location: 'Lakhani',
-      date: 'July 2021 - May 2023',
-      description: 'Completed 12th in Information Technology. Overall: 70%, IT: 95%.',
+      degree: 'Bachelor of Science in Computer Applications and Information Technology',
+      institution: 'SARDAR PATEL UNIVERSITY',
+      // institution: 'NPW Science College',
+      location: 'Anand, India',
+      date: 'JUN 2022 - APRIL 2025',
+      description: 'Completed Bachelor of Science (B.Sc.) in Computer Applications and Information Technology, graduating with a CGPA of 7.69.',
     },
     {
       id: 3,
-      degree: 'Secondary Education',
-      institution: 'Shivaji Vidyalaya Seloti/Manegaon',
-      location: 'SEE',
-      date: 'Apr 2012 - Mar 2021',
-      description: 'Completed 10th grade with 82%. Assisted peers in learning computer skills through hands-on lab sessions.',
+      degree: 'Higher Secondary ',
+      institution: ' D N high school',
+      location: 'Anand, India',
+      date: 'JUN 2020 - APRIL 2022',
+      description: 'Completed 12th grade with 57%. Assisted peers in learning computer skills through hands-on lab sessions.',
     },
   ];
 
@@ -40,14 +41,11 @@ const Education = () => {
         </h2>
 
         <p className="text-gray-soft text-lg mb-12 leading-relaxed">
-          Education has always been the cornerstone of my journey into the tech world. Pursuing a 
-          Bachelor's in Computer Application (BCA) at GH Raisoni College of Engineering and Management, 
-          Nagpur, has provided me a strong foundation in computer science and software development.
+          Education has been a defining pillar in shaping my technical journey. I have successfully pursuing a Master of Science (M.Sc.) in Information Technology, where I strengthened my expertise in advanced computing concepts, software development practices, and modern information systems.
         </p>
 
         <p className="text-gray-soft text-lg mb-12 leading-relaxed">
-          My academic journey has been complemented by hands-on projects and coursework, enabling me 
-          to build practical skills and a deep understanding of modern technological solutions.
+          My academic journey has been complemented by hands-on projects and coursework, enabling me to build practical skills and a deep understanding of modern technological solutions.
         </p>
 
         <div className="space-y-8">
