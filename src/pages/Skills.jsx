@@ -10,17 +10,17 @@ const Skills = () => {
     { name: 'JavaScript' },
     { name: 'TypeScript' },
     { name: 'Tailwind CSS' },
-    { name: 'shadcn/ui' },
-    { name: 'Material UI' },
+    // { name: 'shadcn/ui' },
+    // { name: 'Material UI' },
     { name: 'Framer Motion' },
     { name: 'ReactJS' },
-    { name: 'Redux' },
+    // { name: 'Redux' },
     { name: 'NextJS' },
     { name: 'NodeJS' },
     { name: 'ExpressJS' },
     { name: 'MongoDB' },
-    { name: 'Supabase' },
-    { name: 'Docker' },
+    // { name: 'Supabase' },
+    // { name: 'Docker' },
     { name: 'Vercel' },
     { name: 'Git' },
     { name: 'GitHub' },
@@ -39,10 +39,7 @@ const Skills = () => {
         </h2>
 
         <p className="text-gray-soft text-lg mb-12 leading-relaxed max-w-4xl">
-          As a full-stack Software Engineer, I specialize in building scalable web applications 
-          using modern technologies such as Next.js, React, and Tailwind CSS. I'm also expanding 
-          my expertise into DevOps and cloud practices to create efficient, maintainable, robust 
-          web solutions.
+          Alongside my front-end expertise, I possess foundational backend knowledge, including implementing CRUD operations, building RESTful APIs, configuring Node.js and Express servers, and integrating MongoDB for efficient data management. I am continuously expanding my skill set to deliver structured, maintainable, and robust full-stack solutions.
         </p>
 
         <div className="flex flex-wrap gap-3">

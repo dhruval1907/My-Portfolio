@@ -7,25 +7,17 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      role: 'Open Source Developer',
-      organization: 'Hacktoberfest',
-      date: 'Oct. 2025 - Present',
-      description: 'Currently contributing as an Open Source Developer at Hacktoberfest, working on various web development projects and collaborating with the global developer community.',
-      badge: 'Latest',
-    },
-    {
-      id: 2,
-      role: 'Trainee',
-      organization: 'Sheriyans Coding School',
-      date: 'May 2025 - Oct. 2025',
+      role: 'Trainee ',
+      organization: ' Sheriyans Coding School',
+      date: 'Sep 2025 - April 2025',
       description: 'Trainee at Sheriyans Coding School, learned full-stack technologies and DevOps practices. Participated in hackathons and collaborated on projects with the developer community.',
     },
     {
-      id: 3,
-      role: 'Project Admin',
-      organization: 'GSSoC25 (GirlScript Summer of Code)',
-      date: 'Aug. 2025 - Sept. 2025',
-      description: 'As a Project Admin, I reviewed code, merged pull requests, and communicated with developers, ensuring smooth project workflow and collaboration during GSSoC25.',
+      id: 2,
+      role: 'Hackathon Winner   ',
+      organization: 'Red & white',
+      date: 'Feb 2026',
+      description: 'I was the winner of a Web Hackathon competition organized by Red & White. The challenge required participants to accurately clone a given web project and enhance it by implementing custom JavaScript logic.',
     },
   ];
 
@@ -38,12 +30,7 @@ const Experience = () => {
         </h2>
 
         <p className="text-gray-soft text-lg mb-12 leading-relaxed">
-          Throughout my journey as a developer, I have had the opportunity to work with cutting-edge 
-          technologies while also mastering the fine art of debugging at 2 AM. From building dynamic 
-          web applications to deciphering cryptic error messages, my experience has been a mix of 
-          structured learning and spontaneous problem-solving. Each project and internship has sharpened 
-          my ability to write clean code, collaborate effectively, and most importantly—fix bugs before 
-          they fix me.
+          Throughout my journey as a developer, I have had the opportunity to work with cutting-edge technologies while also mastering the fine art of debugging at 2 AM. From building dynamic web applications to deciphering cryptic error messages, my experience has been a mix of structured learning and spontaneous problem-solving.
         </p>
 
         <div className="space-y-8">
