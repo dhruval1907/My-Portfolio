@@ -28,7 +28,7 @@ const Introduction = () => {
               <Button
                 variant="primary"
                 icon={<ExternalLink size={18} />}
-                onClick={() => window.open("/DHRUVAL_RESuME.pdf.pdf", "_blank")}
+                onClick={() => window.open("/DHRUVAL_RESeME.pdf.pdf", "_blank")}
               >
                 View Resume
               </Button>
