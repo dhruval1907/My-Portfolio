@@ -25,10 +25,18 @@ const Introduction = () => {
               Front-End Developer focused on crafting scalable React.js applications with smooth animations and performance-optimized UI. Possess foundational backend knowledge, including building basic REST APIs, configuring Node.js/Express servers, and integrating MongoDB for data storage to support full-stack functionality
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" icon={<ExternalLink size={18} />}>
-                Get Resume
+              <Button
+                variant="primary"
+                icon={<ExternalLink size={18} />}
+                onClick={() => window.open("/DHRUVAL_RESuME.pdf.pdf", "_blank")}
+              >
+                View Resume
               </Button>
-              <Button variant="outline" icon={<Mail size={18} />}>
+              <Button
+                variant="outline"
+                icon={<Mail size={18} />}
+                onClick={() => window.location.href = "mailto:yourmail@gmail.com"}
+              >
                 Send Mail
               </Button>
             </div>
