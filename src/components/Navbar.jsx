@@ -44,7 +44,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             <div className="flex items-center gap-6">
               <Link to="/" className="flex items-center gap-2">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-white">
-                  <path d="M3 3L10.5 21L13.5 13.5L21 10.5L3 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 3L10.5 21L13.5 13.5L21 10.5L3 3Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 <span className="text-lg font-bold text-white hidden md:block">DD is.dev</span>
               </Link>
@@ -62,12 +62,12 @@ const Navbar = ({ theme, toggleTheme }) => {
                   <ExternalLink size={14} />
                 </a>
                 <a
-                  href="#"
+                  href="/DHRUVAL_RESeME.pdf.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-gray-soft hover:text-white transition-colors"
                 >
-                  Resume
+                  Resumedd
                   <ExternalLink size={14} />
                 </a>
               </div>
@@ -88,13 +88,13 @@ const Navbar = ({ theme, toggleTheme }) => {
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                   <span className="hidden sm:inline">{currentTime}</span>
                 </span>
-                <button 
+                <button
                   onClick={() => setIsMusicOpen(!isMusicOpen)}
                   className="p-2 hover:bg-dark-secondary rounded-lg transition-colors"
                 >
                   <Music size={18} className="text-gray-soft hover:text-white transition-colors" />
                 </button>
-                <button 
+                <button
                   onClick={toggleTheme}
                   className="p-2 hover:bg-dark-secondary rounded-lg transition-colors"
                 >
@@ -118,15 +118,15 @@ const Navbar = ({ theme, toggleTheme }) => {
         </div>
       </nav>
 
-      <CommandPalette 
-        isOpen={isCommandOpen} 
+      <CommandPalette
+        isOpen={isCommandOpen}
         onClose={() => setIsCommandOpen(false)}
         theme={theme}
         toggleTheme={toggleTheme}
       />
-      <MusicPlayer 
-        isOpen={isMusicOpen} 
-        onClose={() => setIsMusicOpen(false)} 
+      <MusicPlayer
+        isOpen={isMusicOpen}
+        onClose={() => setIsMusicOpen(false)}
       />
     </>
   );
