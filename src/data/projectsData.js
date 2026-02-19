@@ -99,43 +99,6 @@ export const projectsData = [
     liveDemo: 'https://invincible-clone-fawn.vercel.app/',
     github: 'https://github.com/dhruval1907/Invincible_Clone',
   },
-  //   {
-  //     id: 'github-profile-viewer',
-  //     title: 'GitHub Profile Viewer | Instant GitHub Insights',
-  //     slug: 'github-profile-viewer',
-  //     shortDescription: 'An interactive web app to instantly view GitHub profiles with clean UI built using HTML, CSS, and JavaScript.',
-  //     bannerImage: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1200&h=600&fit=crop',
-  //     category: 'Web Application',
-  //     year: '2024',
-  //     fullDescription: `GitHub Profile Viewer is a lightweight application that fetches and displays GitHub user profiles using the GitHub API. Simply enter a username and get instant access to profile information, repositories, followers, following, and contribution statistics.
-
-  // The application provides a clean visualization of GitHub data, making it easy to explore any developer's work and activity. Repository cards show key metrics like stars, forks, and primary language. The profile section displays bio, location, company, and social links.
-
-  // Built with vanilla JavaScript to demonstrate fundamental web development skills without framework dependencies. The application handles API rate limiting gracefully and provides clear error messages for invalid usernames.`,
-  //     features: [
-  //       'Search GitHub users by username',
-  //       'Display profile information',
-  //       'List repositories with sorting',
-  //       'Show contribution statistics',
-  //       'Follower and following counts',
-  //       'Repository language distribution',
-  //       'Responsive card-based layout',
-  //       'Error handling for invalid users'
-  //     ],
-  //     techStack: [
-  //       'HTML5',
-  //       'CSS3',
-  //       'JavaScript (ES6+)',
-  //       'GitHub API',
-  //       'Fetch API',
-  //       'CSS Grid',
-  //       'Flexbox'
-  //     ],
-  //     liveDemo: 'https://github-viewer-insights.vercel.app',
-  //     github: 'https://github.com/yourusername/github-profile-viewer',
-  //     challenges: 'Working with GitHub API rate limits and handling various response scenarios. Implemented caching to reduce API calls and improve performance.',
-  //     learnings: 'Learned to work with REST APIs, handle asynchronous JavaScript, and create responsive layouts with pure CSS. Also gained experience with error handling and user feedback.'
-  //   }
 ];
 
 // Helper function to get project by slug
