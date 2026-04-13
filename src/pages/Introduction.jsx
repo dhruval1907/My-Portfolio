@@ -19,10 +19,10 @@ const Introduction = () => {
               Dhruval Dalwadi
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-400 mb-6">
-              Full-Stack Developer who builds with one goal  🐐 domination.
+              Fullstack Developer who builds with one goal  🐐 domination.
             </h2>
             <p className="text-gray-soft text-lg mb-8 max-w-3xl leading-relaxed whitespace-pre-line">
-              I craft React.js interfaces that don’t just look good they move, respond, and feel premium
+              I craft interfaces that don’t just look good they move, respond, and feel premium
               From idea to execution I build products that stand out.
             </p>
             <div className="flex flex-wrap gap-4">

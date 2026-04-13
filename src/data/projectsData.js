@@ -1,16 +1,16 @@
 export const projectsData = [
   {
-    id: 'Mac-os Portfolio',
-    title: 'Mac-os Portfolio',
-    slug: 'Mac-os styling',
-    shortDescription: 'A sleek and modern redesign of mac os for that was created for obsession ',
+    id: 'Coros LLM',
+    title: 'Coros LLM',
+    slug: 'Coros LLM',
+    shortDescription: 'Integrated multiple LLMs (Gemini + Mistral AI) in a unified pipeline ',
     category: 'Web Design',
     year: '2025',
-    fullDescription: `I built a macOS-style portfolio using React and Tailwind CSS, inspired purely by my obsession with Apple’s design language. Clean layouts, subtle animations, and a desktop-like experience define the interface. It’s a minimal, performance-focused project that reflects both precision in UI development and appreciation for macOS aesthetics.`,
+    fullDescription: `CoreOS is a next-generation AI-powered search and reasoning engine designed to move beyond traditional link-based search systems.
+`,
     features: [
-      'Fully responsive design for all devices',
-      'Interactive movable all the component not suitable for mobile ',
-      'Comparing head to head design with the mac-os',
+      'Built intent-aware query system using LangChain',
+      'Built a response fusion system to generate the best final output',
     ],
     techStack: [
       'React',
@@ -19,36 +19,37 @@ export const projectsData = [
       'Vite',
       'React Router',
     ],
-    liveDemo: 'https://mac-os-ashen.vercel.app/',
-    github: 'https://github.com/dhruval1907/MacDeck',
+    liveDemo: 'https://github.com/afdhruval/CoreOs',
+    github: 'https://github.com/afdhruval/CoreOs',
   },
   {
-    id: 'Admin-panel in mern',
-    title: 'Admin-panel in mern',
-    slug: 'Admin-panel in mern',
-    shortDescription: 'MERN Admin Dashboard with Full CRUD Operations',
+    id: 'Medio Post App',
+    title: 'Medio App',
+    slug: 'Medio Post App',
+    shortDescription: 'Medio Post App where you can save ur memories .',
     category: 'crud',
     year: '2026',
-    fullDescription: `I built a MERN stack application as a strong starting point in my backend development journey. This project focuses on implementing complete CRUD operations using MongoDB, where an admin can securely create, update, manage, and delete data. It helped me understand server-side logic, RESTful API structure, database schema design, and real-world data handling with a practical, hands-on approach.`,
+    fullDescription: `A Full Stack Social Media Application with Authentication, Posts, Likes, and Follow System
+This project is a full-stack app. The application allows users to register, login, create posts, like posts, follow or unfollow users, and interact with other users just like a real social media platform.`,
 
 
     features: [
-      'Full CRUD Operations (Create, Read, Update, Delete)',
-      'MongoDB integration for data storage',
-      'Structured REST API using Node.js & Express',
-      'Admin-based data management system',
-      'Mongoose schema & model implementation',
+      'Imagekit to store photos. ',
+      'Follow/Unfollow other users',
+      'JWT-based authentication',
+      'Post creation',
     ],
     techStack: [
       'React',
+      'Imgekit',
       'Node.js',
       'express.js',
       'Mongo DB',
-      'Vercel',
-      // 'EmailJS'
+      'Tailwind css',
+      'JWT',
     ],
-    liveDemo: 'https://www.linkedin.com/posts/dhruval-dalwadi-892144306_mernstack-reactjs-nodejs-ugcPost-7424909715589066752-whX9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE35j-4BkTuWjj63GD2QtVKJfaFFkosMU3Y',
-    github: 'https://github.com/dhruval1907/admin-mern-app',
+    liveDemo: 'https://medio-app-2xfe.onrender.com/',
+    github: 'https://github.com/afdhruval/Medio-app',
   },
   {
     id: 'figma',
