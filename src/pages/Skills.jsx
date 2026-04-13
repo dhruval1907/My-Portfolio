@@ -19,8 +19,10 @@ const Skills = () => {
     { name: 'NodeJS' },
     { name: 'ExpressJS' },
     { name: 'MongoDB' },
-    // { name: 'Supabase' },
     { name: 'Docker' },
+    { name: 'Langchian' },
+    { name: 'GeminiAI' },
+    { name: 'OpenAI' },
     { name: 'Vercel' },
     { name: 'Git' },
     { name: 'GitHub' },
@@ -39,7 +41,7 @@ const Skills = () => {
         </h2>
 
         <p className="text-gray-soft text-lg mb-12 leading-relaxed max-w-4xl">
-          Alongside my front-end expertise, I possess foundational backend knowledge, including implementing CRUD operations, building RESTful APIs, configuring Node.js and Express servers, and integrating MongoDB for efficient data management. I am continuously expanding my skill set to deliver structured, maintainable, and robust full-stack solutions.
+          My expertise spans both frontend and backend development, enabling me to build complete, production-ready applications. I emphasize clean, maintainable code and design systems that are scalable, efficient, and reliable.
         </p>
 
         <div className="flex flex-wrap gap-3">
