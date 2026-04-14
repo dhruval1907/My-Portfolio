@@ -1,82 +1,96 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Music, Play, Pause, Volume2, X } from 'lucide-react';
+import { Howl } from 'howler';
 
 const MusicPlayer = ({ isOpen, onClose }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(70);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const audioRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const soundRef = useRef(null);
 
-  // Working audio URL
   const track = { 
-    title: 'Peaceful Piano', 
-    artist: 'Relaxing Music', 
-    url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+    title: 'Until I Found You', 
+    artist: 'Stephen Sanchez', 
+    url: '/Until_I_Found_You.mp3'
   };
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume / 100;
-    }
-  }, [volume]);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    const updateTime = () => setCurrentTime(audio.currentTime);
-    const updateDuration = () => {
-      setDuration(audio.duration);
-      setIsLoading(false);
-    };
-    const handleEnded = () => {
-      setIsPlaying(false);
-      audio.currentTime = 0;
-    };
-    const handleWaiting = () => setIsLoading(true);
-    const handleCanPlay = () => setIsLoading(false);
-
-    audio.addEventListener('timeupdate', updateTime);
-    audio.addEventListener('loadedmetadata', updateDuration);
-    audio.addEventListener('ended', handleEnded);
-    audio.addEventListener('waiting', handleWaiting);
-    audio.addEventListener('canplay', handleCanPlay);
+    // Initialize Howler
+    soundRef.current = new Howl({
+      src: [track.url],
+      html5: true, // Use HTML5 Audio for streaming large files
+      volume: volume / 100,
+      onload: () => {
+        setDuration(soundRef.current.duration());
+        setIsLoading(false);
+      },
+      onplay: () => {
+        setIsPlaying(true);
+        setIsLoading(false);
+      },
+      onpause: () => {
+        setIsPlaying(false);
+      },
+      onend: () => {
+        setIsPlaying(false);
+        setCurrentTime(0);
+      },
+      onloaderror: () => {
+        setIsLoading(false);
+        console.error("Audio load error");
+      },
+      onplayerror: () => {
+        setIsLoading(false);
+        console.error("Audio play error");
+      }
+    });
 
     return () => {
-      audio.removeEventListener('timeupdate', updateTime);
-      audio.removeEventListener('loadedmetadata', updateDuration);
-      audio.removeEventListener('ended', handleEnded);
-      audio.removeEventListener('waiting', handleWaiting);
-      audio.removeEventListener('canplay', handleCanPlay);
+      if (soundRef.current) {
+        soundRef.current.unload();
+      }
     };
   }, []);
 
-  const handlePlayPause = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
+  useEffect(() => {
+    if (soundRef.current) {
+      soundRef.current.volume(volume / 100);
+    }
+  }, [volume]);
+
+  // Update current time continuously while playing
+  useEffect(() => {
+    let animationFrameId;
+    
+    const updateTime = () => {
+      if (isPlaying && soundRef.current) {
+        setCurrentTime(soundRef.current.seek() || 0);
+        animationFrameId = requestAnimationFrame(updateTime);
+      }
+    };
 
     if (isPlaying) {
-      audio.pause();
-      setIsPlaying(false);
+      animationFrameId = requestAnimationFrame(updateTime);
+    }
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, [isPlaying]);
+
+  const handlePlayPause = () => {
+    if (!soundRef.current) return;
+
+    if (isPlaying) {
+      soundRef.current.pause();
     } else {
       setIsLoading(true);
-      const playPromise = audio.play();
-      
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-            setIsLoading(false);
-          })
-          .catch(error => {
-            console.log('Playback prevented:', error);
-            setIsLoading(false);
-            setIsPlaying(false);
-          });
-      }
+      soundRef.current.play();
     }
   };
 
@@ -88,11 +102,12 @@ const MusicPlayer = ({ isOpen, onClose }) => {
   };
 
   const handleSeek = (e) => {
-    const audio = audioRef.current;
-    if (audio && duration) {
+    if (soundRef.current && duration > 0) {
       const rect = e.currentTarget.getBoundingClientRect();
       const percent = (e.clientX - rect.left) / rect.width;
-      audio.currentTime = percent * audio.duration;
+      const seekTime = percent * duration;
+      soundRef.current.seek(seekTime);
+      setCurrentTime(seekTime);
     }
   };
 
@@ -106,12 +121,6 @@ const MusicPlayer = ({ isOpen, onClose }) => {
         exit={{ opacity: 0, y: 20 }}
         className="fixed bottom-24 right-4 w-80 bg-dark-secondary border border-dark-border rounded-xl shadow-2xl overflow-hidden z-50"
       >
-        <audio 
-          ref={audioRef} 
-          src={track.url}
-          preload="metadata"
-        />
-        
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-dark-border">
           <div className="flex items-center gap-2">
