@@ -7,26 +7,19 @@ const About = () => {
     <PageTransition>
       <div className="max-w-4xl mx-auto px-4 py-16">
         <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
-          About Dhruval
+          I Build The Impossible
         </h1>
         <h2 className="text-2xl md:text-3xl text-gray-400 mb-12">
-          More than just a title—let's dive deeper!
+          Code is my canvas. Problems are my fuel.
         </h2>
 
         <div className="space-y-6 text-gray-soft text-lg leading-relaxed">
           <p>
-            I am a dedicated Front-End Developer specializing in building scalable and performance-driven React.js applications. I focus on crafting clean, responsive, and animation-rich user interfaces that deliver smooth and engaging user experiences. My development approach emphasizes maintainable architecture, optimized rendering, and modern UI practices.
+            I'm the developer who doesn't just write code—I bring ideas to life. While others see limitations, I see challenges waiting to be crushed. I build full-stack applications that don't just work—they perform, scale, and amaze. Every pixel, every API call, every database query is crafted with obsession.
           </p>
           <p>
-
-            With a strong understanding of JavaScript fundamentals and component-based development, I design applications that balance functionality with visual precision. Alongside my front-end expertise, I possess foundational backend knowledge, including building RESTful APIs, configuring Node.js and Express servers, and integrating MongoDB for efficient data management to support full-stack workflows.
+            I don't just connect frontends to backends—I bridge the gap between imagination and reality. I architect systems that handle real traffic, design UIs that users remember, and write APIs that developers actually enjoy using. When you work with me, you're not getting a developer—you're getting a partner who's equally invested in making your vision extraordinary.
           </p>
-{/* 
-          <p>
-            Beyond coding, I thrive in collaborative environments and enjoy tackling challenging problems
-            with creative solutions. I aim to contribute to impactful projects that make a difference in
-            users' lives.
-          </p> */}
         </div>
 
         <SectionNav

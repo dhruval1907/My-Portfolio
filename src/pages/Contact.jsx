@@ -9,15 +9,38 @@ const Contact = () => {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Message sent successfully!');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/afdhruval667@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -85,10 +108,10 @@ const Contact = () => {
           </div>
 
           <div className="flex gap-4">
-            <Button type="submit" variant="primary" className="flex-1">
-              Submit
+            <Button type="submit" variant="primary" className="flex-1" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Submit'}
             </Button>
-            <Button type="button" variant="outline" onClick={handleReset} className="flex-1">
+            <Button type="button" variant="outline" onClick={handleReset} className="flex-1" disabled={isSubmitting}>
               Reset
             </Button>
           </div>

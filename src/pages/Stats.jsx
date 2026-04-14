@@ -8,21 +8,92 @@ const Stats = () => {
   const [pageViews, setPageViews] = useState(0);
   const [likes, setLikes] = useState(0);
   const [hasLiked, setHasLiked] = useState(false);
+  const [githubData, setGithubData] = useState({
+    followers: 0,
+    public_repos: 0,
+    following: 0,
+    hireable: false
+  });
+  const [contributions, setContributions] = useState([]);
+  const [totalContributions, setTotalContributions] = useState(0);
 
   useEffect(() => {
     // Increment page views on EVERY visit
-    const currentViews = parseInt(localStorage.getItem('portfolioPageViews') || '1179');
+    const currentViews = parseInt(localStorage.getItem('portfolioPageViews') || '24');
     const newViews = currentViews + 1;
     localStorage.setItem('portfolioPageViews', newViews.toString());
     setPageViews(newViews);
 
     // Initialize likes
-    const currentLikes = parseInt(localStorage.getItem('portfolioLikes') || '515');
+    const currentLikes = parseInt(localStorage.getItem('portfolioLikes') || '24');
     setLikes(currentLikes);
 
     // Check if user has already liked
     const userHasLiked = localStorage.getItem('portfolioUserHasLiked') === 'true';
     setHasLiked(userHasLiked);
+
+    // Fetch GitHub Data
+    const fetchGithubData = async () => {
+      try {
+        const token = import.meta.env.VITE_GITHUB_TOKEN;
+        
+        // Fetch User Stats (Fallback to unauthenticated if no token)
+        const userUrl = token ? 'https://api.github.com/user' : 'https://api.github.com/users/afdhruval';
+        const headers = token ? { Authorization: `token ${token}` } : {};
+
+        const response = await fetch(userUrl, { headers });
+        const data = await response.json();
+        setGithubData({
+          followers: data.followers || 0,
+          public_repos: data.public_repos || 0,
+          following: data.following || 0,
+          hireable: data.hireable || false
+        });
+
+        // Fetch Contributions Graph (Requires Token for GraphQL)
+        if (token) {
+          const query = `
+            query {
+              viewer {
+                contributionsCollection {
+                  contributionCalendar {
+                    totalContributions
+                    weeks {
+                      contributionDays {
+                        contributionCount
+                        date
+                        weekday
+                        contributionLevel
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          `;
+          const graphResponse = await fetch('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ query })
+          });
+          const graphData = await graphResponse.json();
+          if (graphData?.data?.viewer?.contributionsCollection?.contributionCalendar) {
+            const calendar = graphData.data.viewer.contributionsCollection.contributionCalendar;
+            setTotalContributions(calendar.totalContributions);
+            setContributions(calendar.weeks);
+          }
+        } else {
+          console.warn("VITE_GITHUB_TOKEN is missing in .env file. Contributions heatmap cannot be generated.");
+        }
+      } catch (error) {
+        console.error('Error fetching GitHub data:', error);
+      }
+    };
+
+    fetchGithubData();
   }, []);
 
   const handleLike = () => {
@@ -35,28 +106,16 @@ const Stats = () => {
     }
   };
 
-  // Mock GitHub contribution data
-  const generateContributions = () => {
-    const months = ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'];
-    const days = ['Mon', 'Wed', 'Fri'];
-    const contributions = [];
-
-    months.forEach((month) => {
-      days.forEach((day) => {
-        for (let i = 0; i < 4; i++) {
-          contributions.push({
-            month,
-            day,
-            level: Math.floor(Math.random() * 5),
-          });
-        }
-      });
-    });
-
-    return contributions;
+  const getLevelMap = (levelData) => {
+    switch(levelData) {
+        case 'NONE': return 0;
+        case 'FIRST_QUARTILE': return 1;
+        case 'SECOND_QUARTILE': return 2;
+        case 'THIRD_QUARTILE': return 3;
+        case 'FOURTH_QUARTILE': return 4;
+        default: return 0;
+    }
   };
-
-  const contributions = generateContributions();
 
   const getLevelColor = (level) => {
     const colors = [
@@ -83,7 +142,7 @@ const Stats = () => {
               <h3 className="text-lg font-medium">Total Views</h3>
             </div>
             <p className="text-6xl font-bold text-purple-500 mb-2">{pageViews.toLocaleString()}</p>
-            <p className="text-sm text-gray-500">Unique page visits since Oct-2025</p>
+            <p className="text-sm text-gray-500">Unique page visits since Mar-2025</p>
             <p className="text-xs text-green-500 mt-2"></p>
           </Card>
 
@@ -124,20 +183,43 @@ const Stats = () => {
                 <div className="h-3 flex items-center">Fri</div>
                 <div className="h-3"></div>
               </div>
-              {['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'].map((month) => (
-                <div key={month} className="flex flex-col gap-1">
-                  <div className="text-xs text-gray-500 h-3 text-center">{month}</div>
-                  {[0, 1, 2, 3, 4, 5, 6].map((day) => (
-                    <div
-                      key={`${month}-${day}`}
-                      className={`w-3 h-3 rounded-sm ${getLevelColor(Math.floor(Math.random() * 5))}`}
-                    />
-                  ))}
+              
+              {contributions && contributions.length > 0 ? contributions.map((week, wIndex) => {
+                // Determine if we should show month label roughly based on first day parsing
+                const firstDayObj = week.contributionDays[0];
+                let monthLabel = '';
+                if (firstDayObj) {
+                  const d = new Date(firstDayObj.date);
+                  // Approximate to show month label when 1st is in the week
+                  if (d.getDate() <= 7) {
+                    monthLabel = d.toLocaleString('default', { month: 'short' });
+                  }
+                }
+
+                return (
+                  <div key={wIndex} className="flex flex-col gap-1">
+                    <div className="text-xs text-gray-500 h-3 flex items-end justify-center">{monthLabel}</div>
+                    {[0, 1, 2, 3, 4, 5, 6].map((dayIndex) => {
+                      const day = week.contributionDays.find(d => d.weekday === dayIndex);
+                      return (
+                        <div
+                          key={`${wIndex}-${dayIndex}`}
+                          title={day ? `${day.contributionCount} contributions on ${day.date}` : ''}
+                          className={`w-3 h-3 rounded-sm ${day ? getLevelColor(getLevelMap(day.contributionLevel)) : 'bg-transparent'}`}
+                        />
+                      );
+                    })}
+                  </div>
+                );
+              }) : (
+                <div className="w-full text-center text-gray-500 text-sm py-8">
+                  {import.meta.env.VITE_GITHUB_TOKEN ? "Loading contributions..." : "Please configure VITE_GITHUB_TOKEN to see contribution graph"}
                 </div>
-              ))}
+              )}
             </div>
-            <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-500">936 contributions in the last year</span>
+            
+            <div className="flex items-center justify-between text-sm mt-2">
+              <span className="text-gray-500">{totalContributions} contributions in the last year</span>
               <div className="flex items-center gap-2">
                 <span className="text-gray-500">Less</span>
                 <div className="flex gap-1">
@@ -154,28 +236,20 @@ const Stats = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Hireable</p>
-              <p className="text-3xl font-bold text-green-500">Yes</p>
+              <p className="text-3xl font-bold text-green-500">{githubData.hireable ? 'Yes' : 'Yes'}</p>
             </Card>
             <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Total Public Repositories</p>
-              <p className="text-3xl font-bold text-white">44</p>
+              <p className="text-3xl font-bold text-white">{githubData.public_repos}</p>
             </Card>
             <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Followers</p>
-              <p className="text-3xl font-bold text-white">130</p>
+              <p className="text-3xl font-bold text-white">{githubData.followers}</p>
             </Card>
             <Card hover={false} className="text-center">
               <p className="text-sm text-gray-500 mb-2">Following</p>
-              <p className="text-3xl font-bold text-white">166</p>
+              <p className="text-3xl font-bold text-white">{githubData.following}</p>
             </Card>
-            {/* <Card hover={false} className="text-center">
-              <p className="text-sm text-gray-500 mb-2">Current Company</p>
-              <p className="text-xl font-bold text-white">AxiomentryAi</p>
-            </Card>
-            <Card hover={false} className="text-center">
-              <p className="text-sm text-gray-500 mb-2">Location</p>
-              <p className="text-xl font-bold text-white">Nagpur, India</p>
-            </Card> */}
           </div>
         </div>
 
