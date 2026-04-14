@@ -7,7 +7,7 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      role: 'Trainee ',
+      role: 'Traineee',
       organization: ' Sheriyans Coding School',
       date: 'Sep 2025 - April 2025',
       description: 'Trainee at Sheriyans Coding School, learned full-stack technologies and DevOps practices. Participated in hackathons and collaborated on projects with the developer community.',
